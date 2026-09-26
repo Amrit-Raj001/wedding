@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="groomGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#8C5C0D" />
+    </linearGradient>
+    <linearGradient id="sherwaniCream" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8E7" />
+      <stop offset="50%" stop-color="#F5E6CA" />
+      <stop offset="100%" stop-color="#E0C9A6" />
+    </linearGradient>
+    <linearGradient id="safaCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D32F2F" />
+      <stop offset="70%" stop-color="#880E1E" />
+      <stop offset="100%" stop-color="#4A050F" />
+    </linearGradient>
+    <radialGradient id="groomHalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE082" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#FFB300" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Frame & Aura -->
+  <rect width="300" height="360" rx="16" fill="#1b0c03" />
+  <circle cx="150" cy="150" r="110" fill="url(#groomHalo)" />
+
+  <circle cx="150" cy="150" r="120" fill="none" stroke="url(#groomGold)" stroke-width="2" stroke-dasharray="6,4" />
+  <circle cx="150" cy="150" r="126" fill="none" stroke="url(#groomGold)" stroke-width="1" />
+
+  <!-- GROOM SILHOUETTE (Nikhil - The Royal Groom in Sherwani & Safa/Turban) -->
+  <!-- Royal Silk Sherwani & Shawl -->
+  <path d="M 65,350 L 80,225 L 125,190 L 150,195 L 175,190 L 220,225 L 235,350 Z" fill="url(#sherwaniCream)" stroke="url(#groomGold)" stroke-width="1.5" />
+  <!-- Sherwani Center Placket with Golden Buttons -->
+  <line x1="150" y1="195" x2="150" y2="350" stroke="url(#groomGold)" stroke-width="3" />
+  <circle cx="150" cy="225" r="3.5" fill="url(#groomGold)" />
+  <circle cx="150" cy="250" r="3.5" fill="url(#groomGold)" />
+  <circle cx="150" cy="275" r="3.5" fill="url(#groomGold)" />
+  <circle cx="150" cy="300" r="3.5" fill="url(#groomGold)" />
+
+  <!-- Royal Doshala / Velvet Stole draped on shoulder -->
+  <path d="M 75,225 Q 70,300 85,350 L 115,350 Q 100,280 105,215 Z" fill="url(#safaCrimson)" stroke="url(#groomGold)" stroke-width="1.5" />
+
+  <!-- Pearl Mala (Motiyan Ki Mala on Groom) -->
+  <path d="M 125,200 Q 150,265 175,200" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-dasharray="5,2" />
+  <path d="M 120,205 Q 150,290 180,205" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-dasharray="5,2" />
+  <!-- Emerald Pendant on Mala -->
+  <rect x="145" y="280" width="10" height="13" rx="2" fill="#00796B" stroke="url(#groomGold)" stroke-width="1.5" />
+
+  <!-- Groom's Neck & Face Contour -->
+  <rect x="138" y="165" width="24" height="32" rx="6" fill="#FFDFC4" />
+  <ellipse cx="150" cy="155" rx="26" ry="30" fill="#FFE0B2" />
+
+  <!-- Eyes & Handsome Groom Profile -->
+  <path d="M 137,152 Q 143,148 148,152" stroke="#3E2723" stroke-width="2.2" fill="none" stroke-linecap="round" />
+  <path d="M 152,152 Q 157,148 163,152" stroke="#3E2723" stroke-width="2.2" fill="none" stroke-linecap="round" />
+  <!-- Gentle Smile -->
+  <path d="M 143,170 Q 150,175 157,170" stroke="#8D6E63" stroke-width="2" stroke-linecap="round" fill="none" />
+  <!-- Subtle Royal Moustache -->
+  <path d="M 141,166 Q 146,163 150,165 Q 154,163 159,166" stroke="#2C1B18" stroke-width="2.2" fill="none" stroke-linecap="round" />
+
+  <!-- ROYAL SAFA / TURBAN (Pagdi with Kalgi) -->
+  <!-- Turban Wrap Layers in Imperial Crimson & Gold -->
+  <path d="M 118,142 C 112,110 130,95 150,95 C 170,95 188,110 182,142 Z" fill="url(#safaCrimson)" stroke="url(#groomGold)" stroke-width="2" />
+  <path d="M 120,135 Q 150,118 180,135" fill="none" stroke="url(#groomGold)" stroke-width="3" />
+  <path d="M 122,125 Q 150,108 178,125" fill="none" stroke="url(#groomGold)" stroke-width="3" />
+  <path d="M 125,115 Q 150,98 175,115" fill="none" stroke="url(#groomGold)" stroke-width="2.5" />
+
+  <!-- Kalgi / Sarpech (Royal Feather Brooch on Turban) -->
+  <circle cx="150" cy="100" r="5" fill="url(#groomGold)" />
+  <circle cx="150" cy="100" r="2.5" fill="#D32F2F" />
+  <!-- Plume / Feather curving upward -->
+  <path d="M 150,95 Q 158,60 148,45 Q 144,60 150,95 Z" fill="url(#groomGold)" stroke="#FFF" stroke-width="0.8" />
+  <!-- Hanging Pearl Drop from Kalgi -->
+  <circle cx="150" cy="110" r="3" fill="#FFFFFF" stroke="url(#groomGold)" stroke-width="0.8" />
+
+  <!-- Golden Plaque at Bottom -->
+  <rect x="35" y="308" width="230" height="38" rx="19" fill="#1b0c03" stroke="url(#groomGold)" stroke-width="1.5" />
+  <text x="150" y="332" text-anchor="middle" font-family="'Cinzel Decorative', serif" font-size="14" font-weight="bold" fill="url(#groomGold)" letter-spacing="2">
+    NIKHIL (THE GROOM)
+  </text>
+</svg>

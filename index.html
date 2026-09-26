@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shubh Vivah | Vaishnavi Shrivastava & Nikhil Saurabh | 25.11.2026</title>
+  
+  <!-- SEO & Social Sharing Meta Tags -->
+  <meta name="description" content="Wedding celebration of Vaishnavi Shrivastava & Nikhil Saurabh on 25th November 2026. Join us with divine blessings and joyful celebrations.">
+  <meta property="og:title" content="Vaishnavi & Nikhil's Wedding Invitation | 25th Nov 2026">
+  <meta property="og:description" content="Together with their families, Vaishnavi & Nikhil invite you to celebrate their sacred union.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon with Lord Ganesha Symbol -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/ganesha.svg">
+
+  <!-- Google Fonts: Luxury Indian Royal Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Great+Vibes&family=Marcellus&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons for Wedding Motifs -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background Watermark Pattern -->
+  <div class="bg-damask"></div>
+
+  <!-- Falling Rose & Marigold Canvas -->
+  <canvas id="petal-canvas"></canvas>
+
+  <!-- ==========================================================================
+       ROYAL ENVELOPE OPENING OVERLAY (First Impression)
+       ========================================================================== -->
+  <div id="envelope-overlay" class="envelope-overlay">
+    <div class="royal-envelope-box">
+      <!-- Auspicious Ganesha Emblem -->
+      <div class="envelope-ganesha">
+        <img src="assets/images/ganesha.svg" alt="Lord Ganesha" style="width: 100%; height: 100%;">
+      </div>
+
+      <div class="envelope-shloka">॥ श्री गणेशाय नमः ॥</div>
+      <h1 class="envelope-title">Vaishnavi &amp; Nikhil</h1>
+      <div class="envelope-subtitle">Royal Wedding Invitation</div>
+
+      <p style="font-size: 0.95rem; color: #5a4246; max-width: 420px; margin: 0 auto 10px; line-height: 1.5;">
+        With the blessings of <strong>Adv. Deoraj Shrivastava</strong> &amp; <strong>Bishwa Bihari Shrivastava</strong>, we invite you to celebrate the sacred union.
+      </p>
+
+      <div class="envelope-date-tag" style="font-family: var(--font-royal); font-size: 1rem; color: var(--crimson-primary); font-weight: 700; margin: 12px 0;">
+        WEDNESDAY, 25TH NOVEMBER 2026
+      </div>
+
+      <!-- Interactive Wax Seal & Enter Button -->
+      <div class="wax-seal-wrapper" id="open-seal-btn" title="Click to Open the Royal Invitation" 
+           onclick="document.getElementById('envelope-overlay').classList.add('opened'); if(window.weddingSoundtrack && !window.weddingSoundtrack.isPlaying) window.weddingSoundtrack.toggle();">
+        <div class="wax-seal">
+          <span class="seal-monogram">V &amp; N</span>
+          <span class="seal-text">Open</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <button id="open-envelope-btn" class="btn-royal-primary" 
+                style="font-size: 1.05rem; padding: 14px 32px; box-shadow: 0 0 25px rgba(212, 175, 55, 0.6); cursor: pointer;"
+                onclick="document.getElementById('envelope-overlay').classList.add('opened'); if(window.weddingSoundtrack && !window.weddingSoundtrack.isPlaying) window.weddingSoundtrack.toggle();">
+          <i class="fa-solid fa-envelope-open-text"></i>
+          Open Invitation &amp; Enter Website
+        </button>
+      </div>
+
+      <!-- Quick Dismiss Button in Corner -->
+      <button onclick="document.getElementById('envelope-overlay').classList.add('opened')" 
+              style="position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 1.8rem; color: var(--crimson-primary); cursor: pointer;" 
+              title="Enter Website Directly">&times;</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING ACTIONS DOCK (Music, Petals, Theme, Share)
+       ========================================================================== -->
+  <div class="floating-dock">
+    <!-- Theme Palette Selector -->
+    <button id="theme-toggle-btn" class="dock-btn" title="Choose Royal Wedding Theme">
+      <i class="fa-solid fa-palette"></i>
+      <span class="tooltip">Switch Royal Theme</span>
+    </button>
+
+    <!-- Music Player Toggle -->
+    <button id="music-toggle-btn" class="dock-btn" title="Toggle Wedding Shehnai & Melody">
+      <i class="fa-solid fa-music"></i>
+      <span class="tooltip">Wedding Music (Shehnai)</span>
+    </button>
+
+    <!-- Falling Petals Toggle -->
+    <button id="petals-toggle-btn" class="dock-btn" title="Toggle Falling Petals Shower">
+      <i class="fa-solid fa-fan"></i>
+      <span class="tooltip">Flower Petals Shower</span>
+    </button>
+
+    <!-- WhatsApp Share -->
+    <button id="share-invite-btn" class="dock-btn" title="Share Invitation via WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="tooltip">Share on WhatsApp</span>
+    </button>
+  </div>
+
+  <!-- Royal Theme Picker Dropdown Panel -->
+  <div id="theme-picker-panel" class="theme-picker-panel">
+    <div class="theme-picker-title">✨ Royal Wedding Theme</div>
+    <button class="theme-opt-btn active" data-theme-val="emerald" type="button">
+      <span class="theme-color-dot" style="background: linear-gradient(135deg, #135d43, #092e20);"></span>
+      <span>🌿 Imperial Emerald &amp; Gold</span>
+    </button>
+    <button class="theme-opt-btn" data-theme-val="peacock" type="button">
+      <span class="theme-color-dot" style="background: linear-gradient(135deg, #0e3c68, #07223d);"></span>
+      <span>🦚 Peacock Sapphire &amp; Gold</span>
+    </button>
+    <button class="theme-opt-btn" data-theme-val="crimson" type="button">
+      <span class="theme-color-dot" style="background: linear-gradient(135deg, #780d1e, #4a0610);"></span>
+      <span>🌹 Heritage Vivah Crimson</span>
+    </button>
+    <button class="theme-opt-btn" data-theme-val="rosegold" type="button">
+      <span class="theme-color-dot" style="background: linear-gradient(135deg, #6c183a, #e5b0a1);"></span>
+      <span>🌸 Palace Rose &amp; Champagne</span>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       STICKY REGAL NAVIGATION
+       ========================================================================== -->
+  <nav class="royal-nav">
+    <a href="#hero" class="nav-logo">
+      <span style="font-family: var(--font-cursive); font-size: 2.2rem; color: var(--gold-light);">V &amp; N</span>
+      <span style="font-size: 0.75rem; font-family: var(--font-royal); letter-spacing: 2px; color: #ffccbc;">25.11.2026</span>
+    </a>
+
+    <ul class="nav-links" id="nav-links-menu">
+      <li><a href="#divine">Auspicious Blessings</a></li>
+      <li><a href="#tribute">Our Sister Vaishnavi</a></li>
+      <li><a href="#couple">The Couple</a></li>
+      <li><a href="#events">Celebrations</a></li>
+      <li><a href="#guestbook">Blessings Wall</a></li>
+      <li><a href="#venue">Venue &amp; Date</a></li>
+    </ul>
+
+    <button class="nav-mobile-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- ==========================================================================
+       SECTION 1: HERO / ROYAL INVOCATION & COUNTDOWN
+       ========================================================================== -->
+  <header id="hero" class="hero-section">
+    <!-- Auspicious Shloka Banner -->
+    <div class="sacred-shloka-banner">
+      <img src="assets/images/kalash.svg" alt="Kalash" class="sacred-icon-mini">
+      <span class="shloka-sanskrit">॥ श्री गणेशाय नमः ॥ श्री राधा-कृष्णाभ्यां नमः ॥</span>
+      <img src="assets/images/kalash.svg" alt="Kalash" class="sacred-icon-mini">
+    </div>
+
+    <!-- Lord Ganesha Animated Emblem -->
+    <div class="hero-ganesha-wrapper">
+      <img src="assets/images/ganesha.svg" alt="Lord Ganesha - The Remover of Obstacles" class="hero-ganesha-img">
+    </div>
+
+    <div class="hero-invitation-pretitle">Together With Their Families, Cordially Invite You</div>
+
+    <!-- Couple Grand Typography -->
+    <div class="hero-couple-names">
+      <span class="couple-name">Vaishnavi</span>
+      <span class="wedding-symbol">weds</span>
+      <span class="couple-name">Nikhil</span>
+    </div>
+
+    <!-- Parents Lineage -->
+    <div style="font-family: var(--font-serif); font-size: 1.15rem; color: #f5d77f; margin: 4px auto 16px; letter-spacing: 1px;">
+      Daughter of <strong>Adv. Deoraj Shrivastava</strong> &amp; Son of <strong>Bishwa Bihari Shrivastava</strong>
+    </div>
+
+    <p class="hero-subtitle">
+      “Two lives, two souls, one heartbeat. We invite you to join us under the stars as we begin our forever.”
+    </p>
+
+    <!-- Auspicious Date Badge -->
+    <div class="wedding-date-badge">
+      <i class="fa-solid fa-calendar-star" style="color: var(--gold-light); font-size: 1.1rem;"></i>
+      <span>Wednesday, 25th November 2026</span>
+    </div>
+
+    <!-- Live Countdown Timer -->
+    <div class="countdown-container">
+      <div class="countdown-box">
+        <div class="countdown-number" id="count-days">00</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="count-hours">00</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="count-mins">00</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="count-secs">00</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
+
+    <!-- Hero CTA Buttons -->
+    <div class="hero-cta-group">
+      <a href="#tribute" class="btn-royal-primary">
+        <i class="fa-solid fa-heart"></i>
+        Read About Our Sister
+      </a>
+      <a href="#events" class="btn-royal-secondary">
+        <i class="fa-solid fa-calendar-days"></i>
+        View Wedding Schedule
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 2: AUSPICIOUS DIVINE BLESSINGS (GODS SECTION)
+       ========================================================================== -->
+  <section id="divine" class="section-wrapper bg-ivory">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Divine Invocations &amp; Sacred Mangal Vachan</span>
+        <h2 class="section-title">Auspicious Blessings of the Almighty</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <span class="ornament">ॐ</span>
+          <div class="line"></div>
+        </div>
+        <p style="max-width: 680px; margin: 15px auto 0; color: #5a4548; font-size: 1.05rem;">
+          In accordance with sacred Sanatana traditions, every auspicious beginning commences with the divine grace of the Gods, seeking their eternal protection and blessings for Vaishnavi &amp; Nikhil.
+        </p>
+      </div>
+
+      <div class="divine-grid">
+        <!-- Card 1: Lord Ganesha (Vighnaharta) -->
+        <div class="divine-card">
+          <!-- Ornate Corner Flourishes -->
+          <img src="assets/images/mandala_corner.svg" class="corner-flourish corner-tl" alt="flourish">
+          <img src="assets/images/mandala_corner.svg" class="corner-flourish corner-tr" alt="flourish">
+          <img src="assets/images/mandala_corner.svg" class="corner-flourish corner-bl" alt="flourish">
+          <img src="assets/images/mandala_corner.svg" class="corner-flourish corner-br" alt="flourish">
+
+          <div class="divine-img-container">
+            <img src="assets/images/ganesha.svg" alt="Bhagwan Ganesha">
+          </div>
+          <h3 class="divine-title">॥ श्री गणेशाय नमः ॥</h3>
+          <div class="divine-shloka-text">
+            वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>
+            निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥
+          </div>
+          <p class="divine-meaning">
+            “O Lord with curved trunk and colossal divine aura, shining with the radiance of a billion suns. Remove all obstacles from our path and bless this auspicious wedding with harmony and everlasting joy.”
+          </p>
+        </div>
+
+        <!-- Card 2: Divine Couple Radha-Krishna (Prem & Samarpan) -->
+        <div class="divine-card">
+          <img src="assets/images/mandala_corner.svg" class="corner-flourish corner-tl" alt="flourish">
+          <img src="assets/images/mandala_corner.svg" class="corner-flourish corner-tr" alt="flourish">
+          <img src="assets/images/mandala_corner.svg" class="corner-flourish corner-bl" alt="flourish">
+          <img src="assets/images/mandala_corner.svg" class="corner-flourish corner-br" alt="flourish">
+
+          <div class="divine-img-container">
+            <img src="assets/images/radha_krishna.svg" alt="Shree Radha Krishna">
+          </div>
+          <h3 class="divine-title">॥ श्री राधा-कृष्णाभ्यां नमः ॥</h3>
+          <div class="divine-shloka-text">
+            मंगलम् भगवान विष्णुः मंगलम् गरुडध्वजः।<br>
+            मंगलम् पुण्डरीकाक्षः मंगलाय तनो हरिः॥
+          </div>
+          <p class="divine-meaning">
+            “May the supreme divine embodiments of eternal unconditional love, devotion, and sacred partnership bestow their everlasting grace and prosperity upon the newly wedded couple.”
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: HEARTFELT TRIBUTE TO OUR SISTER VAISHNAVI
+       ========================================================================== -->
+  <section id="tribute" class="section-wrapper bg-crimson">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">The Pride &amp; Joy of Our Family</span>
+        <h2 class="section-title">Our Dearest Sister: Vaishnavi</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <span class="ornament">✨</span>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <!-- Main Tribute Showcase -->
+      <div class="sister-tribute-hero">
+        <div class="sister-intro-layout">
+          <!-- Artistic Avatar Frame with Real Photo of Vaishnavi -->
+          <div class="sister-avatar-wrapper">
+            <div class="sister-frame" style="overflow: hidden; padding: 4px; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.45);">
+              <img src="assets/images/photo_wedding_2.jpg" alt="Vaishnavi - The Radiant Bride" 
+                   style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 18% 30%; border: 3px solid var(--gold-primary);">
+            </div>
+            <div style="font-family: var(--font-cursive); font-size: 1.8rem; color: var(--gold-light); margin-top: 8px;">
+              Vaishnavi
+            </div>
+          </div>
+
+          <!-- Emotional Tribute Text from Brother & Family -->
+          <div class="sister-intro-content">
+            <h3 class="sister-name-display">Vaishnavi Shrivastava</h3>
+            <span class="sister-role-tag">Our Little Princess • Our Greatest Pride</span>
+            
+            <p class="sister-quote">
+              “A daughter with a heart of pure gold, a sister who is our endless sunshine, and now a bride stepping gracefully into her fairytale.”
+            </p>
+
+            <div class="sister-paragraphs">
+              <p>
+                From the moment she arrived into our lives, <strong>Vaishnavi</strong> has been the emotional center of our household. Her sweet infectious laughter turns the most ordinary day into a celebration, and her boundless empathy makes everyone around her feel valued, cherished, and protected.
+              </p>
+              <p>
+                Growing up together has been the sweetest blessing. Through childhood antics, late-night heart-to-heart conversations, shared dreams, and quiet confidences, she has been our fiercest supporter, wisest advisor, and closest friend. She carries herself with rare elegance, profound kindness, and an inner strength that inspires everyone she touches.
+              </p>
+              <p>
+                As she prepares to embark on this beautiful new journey of marriage with <strong>Nikhil</strong>, our hearts are overflowing with uncontainable joy and tender nostalgia. <em>Nikhil, you are welcoming an angel into your life—cherish her, make her laugh, and know that you both have the unconditional love of our entire family forever.</em>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Key Qualities Grid -->
+        <div class="tribute-qualities-grid">
+          <div class="quality-card">
+            <div class="quality-icon"><i class="fa-solid fa-sun"></i></div>
+            <h4 class="quality-title">Radiant Warmth &amp; Smile</h4>
+            <p class="quality-text">Her warmth has the magic to dissolve any sorrow. Her smile brings effortless light and joy to every room she enters.</p>
+          </div>
+
+          <div class="quality-card">
+            <div class="quality-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+            <h4 class="quality-title">Selfless Love &amp; Compassion</h4>
+            <p class="quality-text">She always puts her family and loved ones first, caring deeply with an open, loving, and thoughtful heart.</p>
+          </div>
+
+          <div class="quality-card">
+            <div class="quality-icon"><i class="fa-solid fa-gem"></i></div>
+            <h4 class="quality-title">Poise, Grace &amp; Wisdom</h4>
+            <p class="quality-text">Intellectual, dignified, and rooted in rich values, she faces life’s every milestone with dignity and quiet courage.</p>
+          </div>
+
+          <div class="quality-card">
+            <div class="quality-icon"><i class="fa-solid fa-infinity"></i></div>
+            <h4 class="quality-title">The Best Sister Ever</h4>
+            <p class="quality-text">An eternal bond that distance or time can never diminish. Always our baby sister, our pride, and our treasure.</p>
+          </div>
+        </div>
+
+        <!-- Loving Siblings Clan & Dynamic Name Adder -->
+        <div class="siblings-clan-box">
+          <h4 class="siblings-clan-title">
+            <i class="fa-solid fa-people-roof" style="color: var(--gold-primary);"></i>
+            Our Loving Siblings Clan (स्नेही भाई-बहन)
+          </h4>
+          <p style="font-size: 0.92rem; color: #5a4246; max-width: 540px; margin: 0 auto 6px;">
+            Blessed with boundless love, shared secrets, and childhood memories. With endless affection from sisters <strong>Shreya</strong> &amp; <strong>Pankhuri</strong>, brother <strong>Amritraj</strong>, and the entire sibling family!
+          </p>
+          <p style="font-size: 0.82rem; color: #7a5e62; max-width: 540px; margin: 0 auto 10px;">
+            <i class="fa-solid fa-circle-info" style="color: var(--gold-dark);"></i> You can delete any sister or brother name by clicking its <strong>✕</strong> button, or add more names below!
+          </p>
+
+          <!-- List of Siblings Badges (Auto-populated & Interactive) -->
+          <div class="siblings-badge-list" id="siblings-list-container">
+            <!-- Dynamic badges populated by app.js: Shreya, Pankhuri, Amritraj, and more -->
+          </div>
+
+          <!-- Interactive Add Name Field for Vaishnavi & Family -->
+          <div style="margin-top: 15px; border-top: 1px dashed #ebd49f; padding-top: 16px;">
+            <div style="font-family: var(--font-royal); font-size: 0.82rem; color: var(--gold-dark); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;">
+              ✨ Want to add another brother or sister's name? Add here:
+            </div>
+            <div class="sibling-add-bar">
+              <input type="text" id="new-sibling-name" class="sibling-add-input" placeholder="Enter name (e.g. Priyanshu, Ananya)...">
+              <select id="new-sibling-role" class="sibling-add-select">
+                <option value="Sister">Sister</option>
+                <option value="Brother">Brother</option>
+                <option value="Cousin">Cousin</option>
+              </select>
+              <button id="add-sibling-btn" class="sibling-add-btn" type="button">
+                <i class="fa-solid fa-plus"></i> Add to Clan
+              </button>
+            </div>
+            <div style="margin-top: 10px; text-align: center;">
+              <button id="reset-siblings-btn" type="button" 
+                      style="background: none; border: none; color: var(--crimson-primary); font-size: 0.82rem; cursor: pointer; text-decoration: underline;" 
+                      title="Restore original names">
+                ↺ Restore Default Sibling Names (Shreya, Pankhuri, Amritraj)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Diya Blessing Box -->
+        <div class="diya-blessing-box">
+          <div style="font-size: 2.2rem; color: var(--gold-primary);" id="diya-icon-anim">
+            <i class="fa-solid fa-fire-flame-curved"></i>
+          </div>
+          <div class="diya-count-text">
+            <span id="diya-count-number">108</span> Sacred Diyas Lit For Vaishnavi &amp; Nikhil
+          </div>
+          <p style="font-size: 0.92rem; color: #5a4246; max-width: 480px;">
+            Touch the button below to light a virtual golden Diya to send your warmest blessings for their health, prosperity, and everlasting togetherness.
+          </p>
+          <button id="light-diya-btn" class="diya-btn">
+            <i class="fa-solid fa-fire"></i>
+            Light a Diya of Blessings
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: MEET THE COUPLE (VAISHNAVI & NIKHIL)
+       ========================================================================== -->
+  <section id="couple" class="section-wrapper bg-crimson" style="padding-top: 20px;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Two Hearts, One Sacred Destiny</span>
+        <h2 class="section-title">The Bride &amp; Groom</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <span class="ornament">❤️</span>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="couple-showcase">
+        <!-- Bride: Vaishnavi -->
+        <div class="couple-person-card">
+          <div class="couple-photo-circle" style="overflow: hidden; padding: 4px; box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);">
+            <img src="assets/images/photo_wedding_3.jpg" alt="Vaishnavi Shrivastava" 
+                 style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 30%; border: 2px solid var(--gold-primary);">
+          </div>
+          <h3 class="couple-title-name">Vaishnavi</h3>
+          <div class="couple-title-role">Vaishnavi Shrivastava</div>
+          <div style="font-size: 0.88rem; color: #f5d77f; margin-bottom: 12px; font-family: var(--font-royal); letter-spacing: 1px;">
+            Daughter of <strong>Adv. Deoraj Shrivastava</strong>
+          </div>
+          <p class="couple-description">
+            A graceful soul with a melody in her laugh, depth in her thoughts, and pure tenderness in her spirit. Today, as she steps into the holy sacrament of marriage, she carries our family's highest prayers and boundless love.
+          </p>
+        </div>
+
+        <!-- Heart Connector -->
+        <div class="couple-heart-connector">
+          <i class="fa-solid fa-heart heart-icon"></i>
+          <span>Subh Vivah</span>
+          <div style="font-family: var(--font-serif); font-size: 1.1rem; font-style: italic; color: #f5d77f; margin-top: 4px;">
+            25 • 11 • 2026
+          </div>
+        </div>
+
+        <!-- Groom: Nikhil -->
+        <div class="couple-person-card">
+          <div class="couple-photo-circle" style="overflow: hidden; padding: 4px; box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);">
+            <img src="assets/images/photo_wedding_3.jpg" alt="Nikhil Saurabh" 
+                 style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 84% 35%; border: 2px solid var(--gold-primary);">
+          </div>
+          <h3 class="couple-title-name">Nikhil</h3>
+          <div class="couple-title-role">Nikhil Saurabh</div>
+          <div style="font-size: 0.88rem; color: #f5d77f; margin-bottom: 12px; font-family: var(--font-royal); letter-spacing: 1px;">
+            Son of <strong>Bishwa Bihari Shrivastava</strong>
+          </div>
+          <p class="couple-description">
+            Gentleman of integrity, sharp wit, and noble character. Nikhil is the wonderful partner who understands Vaishnavi's dreams, matches her smiles, and promises to stand beside her through all the beautiful seasons of life.
+          </p>
+        </div>
+      </div>
+
+      <!-- Moments of Love & Family Album Gallery -->
+      <div class="photo-gallery-section">
+        <div class="section-header" style="margin-bottom: 30px;">
+          <span class="section-tagline">Treasured Moments &amp; Wedding Album</span>
+          <h3 class="section-title" style="font-size: 2.3rem;">Moments of Love &amp; Family</h3>
+          <div class="section-divider">
+            <div class="line"></div>
+            <span class="ornament">📸</span>
+            <div class="line"></div>
+          </div>
+          <p style="color: #edd9b8; font-size: 0.95rem; margin-top: 10px;">
+            Touch any photograph to view in high definition!
+          </p>
+        </div>
+
+        <!-- Gallery Filter Tabs -->
+        <div class="gallery-filter-tabs">
+          <button class="gallery-tab-btn active" data-filter="all">🌸 All Moments (17)</button>
+          <button class="gallery-tab-btn" data-filter="couple">💍 The Royal Couple</button>
+          <button class="gallery-tab-btn" data-filter="rituals">🪷 Tilak &amp; Sacred Rituals</button>
+          <button class="gallery-tab-btn" data-filter="family">💖 Sisters &amp; Family Clan</button>
+        </div>
+
+        <div class="photo-gallery-grid" id="main-photo-gallery">
+          <!-- 1. True Love Stories Never Have Endings -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="couple" data-img="assets/images/photo_couple_grand.jpg" data-caption="Vaishnavi &amp; Nikhil • “True love stories never have endings.”">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_couple_grand.jpg" alt="True Love Stories">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">True Love Stories</div>
+              <div class="wedder-caption-role">Hands in Hand • Forever Union</div>
+            </div>
+          </div>
+
+          <!-- 2. The Royal Ring Ceremony & Vow -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="couple" data-img="assets/images/photo_wedding_1.jpg" data-caption="Vaishnavi &amp; Nikhil • Ring Ceremony &amp; Sacred Union">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_wedding_1.jpg" alt="Ring Ceremony">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">My Love Story</div>
+              <div class="wedder-caption-role">Ring Ceremony &amp; Sacred Union</div>
+            </div>
+          </div>
+
+          <!-- 3. Mehendi Radiance & The Couple -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="couple" data-img="assets/images/photo_wedding_2.jpg" data-caption="Vaishnavi &amp; Nikhil • Mehendi Shringaar &amp; Joy">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_wedding_2.jpg" alt="Mehendi Ceremony">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Mehendi Radiance</div>
+              <div class="wedder-caption-role">Hands Inscribed in Love</div>
+            </div>
+          </div>
+
+          <!-- 4. Soulful Devotion & Gentle Kiss -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="couple" data-img="assets/images/photo_wedding_3.jpg" data-caption="Vaishnavi &amp; Nikhil • Loving Moments &amp; Soulful Devotion">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_wedding_3.jpg" alt="Soulful Moments">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Loving Moments</div>
+              <div class="wedder-caption-role">Soulful Devotion &amp; Grace</div>
+            </div>
+          </div>
+
+          <!-- 5. Every Love Story is Beautiful -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="couple" data-img="assets/images/photo_wedding_4.png" data-caption="Vaishnavi &amp; Nikhil • Life is for Living &amp; Loving">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_wedding_4.png" alt="Love Story Panoramic">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Our Fairytale</div>
+              <div class="wedder-caption-role">“Every love story is beautiful...”</div>
+            </div>
+          </div>
+
+          <!-- 6. Shubh Tilak Ceremony -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="rituals" data-img="assets/images/photo_tilak_1.png" data-caption="Nikhil Saurabh • Auspicious Tilak Ceremony &amp; Vedic Invocations">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_tilak_1.png" alt="Tilak Ceremony Nikhil">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Shubh Tilak Vidhi</div>
+              <div class="wedder-caption-role">Honoring the Groom • Vedic Blessings</div>
+            </div>
+          </div>
+
+          <!-- 7. Father's Sacred Blessings & Mandap Rituals -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="rituals" data-img="assets/images/photo_rituals_father.png" data-caption="Adv. Deoraj Shrivastava blessing daughter Vaishnavi • Sacred Purna Kalash Rituals">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_rituals_father.png" alt="Father and Daughter Rituals">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Father's Blessings</div>
+              <div class="wedder-caption-role">Adv. Deoraj Shrivastava &amp; Vaishnavi</div>
+            </div>
+          </div>
+
+          <!-- 8. Loving Sisters Shreya & Pankhuri with Vaishnavi -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="family" data-img="assets/images/photo_sisters_family.png" data-caption="Vaishnavi with loving sisters Shreya &amp; Pankhuri and family">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_sisters_family.png" alt="Loving Sisters and Family">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Sisters Forever</div>
+              <div class="wedder-caption-role">Shreya, Pankhuri &amp; Vaishnavi</div>
+            </div>
+          </div>
+
+          <!-- 9. Memorable Moments & Festive Dance -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="family" data-img="assets/images/photo_memorable_moments.png" data-caption="Joyful dance, laughter, and family revelry">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_memorable_moments.png" alt="Family Dance and Joy">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Celebration &amp; Dance</div>
+              <div class="wedder-caption-role">Family Rejoicing &amp; Dholak Beats</div>
+            </div>
+          </div>
+
+          <!-- 10. Family Blessings & United Clan -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="family" data-img="assets/images/photo_wedding_5.png" data-caption="Shrivastava &amp; Saurabh Families • Cherished Family Blessings">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_wedding_5.png" alt="Family Blessings">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Family Blessings</div>
+              <div class="wedder-caption-role">Parents, Elders &amp; Cherished Moments</div>
+            </div>
+          </div>
+
+          <!-- 11. Glamour & Harmony -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="couple" data-img="assets/images/photo_glamour_couple.png" data-caption="Vaishnavi &amp; Nikhil • “May you love and hold each other in the worst of times with trust and belief...”">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_glamour_couple.png" alt="Glamour and Harmony">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Trust &amp; Belief</div>
+              <div class="wedder-caption-role">Holding Each Other in Grace</div>
+            </div>
+          </div>
+
+          <!-- 12. Traditional Ring Ceremony on Stage -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="couple" data-img="assets/images/photo_ring_ceremony_stage.png" data-caption="Vaishnavi &amp; Nikhil • Traditional Ring Ceremony on Grand Stage">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_ring_ceremony_stage.png" alt="Ring Ceremony on Stage">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Ring Ceremony</div>
+              <div class="wedder-caption-role">Grand Floral Stage &amp; Celebrations</div>
+            </div>
+          </div>
+
+          <!-- 13. Sweet Memories with Grandparents & Elders -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="family" data-img="assets/images/photo_sweet_memories_stage.png" data-caption="Sweet Memories • Blessings from Grandparents and Revered Elders">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_sweet_memories_stage.png" alt="Sweet Memories Stage">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Sweet Memories</div>
+              <div class="wedder-caption-role">Grandparents &amp; Elders Ashirwad</div>
+            </div>
+          </div>
+
+          <!-- 14. Sacred Shringaar & Mother's Blessings -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="rituals" data-img="assets/images/photo_jewelry_blessings.png" data-caption="Mother's Love &amp; Sacred Shringaar • Adorning the Bride with Gold Blessings">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_jewelry_blessings.png" alt="Mother and Bride Shringaar">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Sacred Shringaar</div>
+              <div class="wedder-caption-role">Mother's Gold Blessings &amp; Love</div>
+            </div>
+          </div>
+
+          <!-- 15. Capture the Moment & All Loved Ones -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="family" data-img="assets/images/photo_capture_moment.png" data-caption="Capture the Moment • Both Families United in Eternal Joy">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_capture_moment.png" alt="Capture the Moment">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Capture The Moment</div>
+              <div class="wedder-caption-role">Families United in Celebration</div>
+            </div>
+          </div>
+
+          <!-- 16. Cake Cutting Celebration & Sweet Feasts -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="couple" data-img="assets/images/photo_cake_celebration.png" data-caption="Vaishnavi &amp; Nikhil • Joyous Cake Cutting &amp; Sweet Celebrations with Loved Ones">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_cake_celebration.png" alt="Cake Cutting Celebration">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Sweet Celebration</div>
+              <div class="wedder-caption-role">Cake Cutting &amp; Family Joy</div>
+            </div>
+          </div>
+
+          <!-- 17. Sacred Ring Ceremony & Dancing Festivities -->
+          <div class="wedder-photo-card lightbox-trigger" data-category="rituals" data-img="assets/images/photo_ring_ceremony_quad.jpg" data-caption="Vaishnavi &amp; Nikhil • Traditional Ring Ceremony &amp; High-Spirited Dance">
+            <div class="wedder-img-frame">
+              <img src="assets/images/photo_ring_ceremony_quad.jpg" alt="Ring Ceremony and Dance">
+            </div>
+            <div class="wedder-photo-caption">
+              <div class="wedder-caption-name">Ring Exchange</div>
+              <div class="wedder-caption-role">Sacred Vows &amp; Folk Dance</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: SHUBH VIVAH CELEBRATIONS ITINERARY
+       ========================================================================== -->
+  <section id="events" class="section-wrapper bg-ivory">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Mangal Karyakram Itinerary</span>
+        <h2 class="section-title">Wedding Celebrations</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <span class="ornament">🪷</span>
+          <div class="line"></div>
+        </div>
+        <p style="max-width: 650px; margin: 15px auto 0; color: #5a4548; font-size: 1.05rem;">
+          Join us as we partake in timeless Vedic rituals, vibrant melodies, joyous dance, and the sacred sacred pheras of marriage.
+        </p>
+      </div>
+
+      <!-- Ceremony Background Music Switcher Bar -->
+      <div class="ceremony-music-bar">
+        <div class="music-now-playing-info">
+          <i class="fa-solid fa-compact-disc music-equalizer-icon" id="ceremony-music-icon"></i>
+          <div>
+            <div class="now-playing-label">🎶 Ceremony Background Music</div>
+            <div class="now-playing-title" id="now-playing-track-name">Grand Royal Shehnai (Shubh Vivah)</div>
+          </div>
+        </div>
+
+        <div class="ceremony-music-chips">
+          <button class="ceremony-chip-btn" data-theme="tilak" title="Play Tilak Vedic Music">
+            <i class="fa-solid fa-om"></i> Tilak (21 Nov)
+          </button>
+          <button class="ceremony-chip-btn" data-theme="haldi" title="Play Haldi Folk Music">
+            <i class="fa-solid fa-sun"></i> Haldi (24 Nov)
+          </button>
+          <button class="ceremony-chip-btn active" data-theme="wedding" title="Play Royal Vivah Shehnai">
+            <i class="fa-solid fa-ring"></i> Vivah (25 Nov)
+          </button>
+          <button class="ceremony-chip-btn" data-theme="mehendi" title="Play Mehendi Henna Music">
+            <i class="fa-solid fa-hand-sparkles"></i> Mehendi (26 Nov)
+          </button>
+        </div>
+      </div>
+
+      <div class="itinerary-timeline">
+        <!-- Event 1: Tilak Ceremony -->
+        <div class="event-card" id="card-tilak" data-theme="tilak">
+          <span class="event-badge">Auspicious Beginning</span>
+          <div class="event-icon-box">
+            <i class="fa-solid fa-om"></i>
+          </div>
+          <h3 class="event-title">Tilak Ceremony</h3>
+          <div class="event-datetime">
+            <span>Saturday, 21st November 2026 (21.11.26)</span>
+            <span style="color: var(--crimson-primary);">11:00 AM Onwards</span>
+          </div>
+          <p class="event-desc">
+            Sacred Tilak vidhi, Vedic invocations, honoring the groom Nikhil, exchanging auspicious shagun, and bestowing family blessings for the upcoming union.
+          </p>
+          <div class="event-dresscode">Dress Code: Traditional Kurta &amp; Silk Attire</div>
+          <button class="event-music-btn" data-theme="tilak">
+            <i class="fa-solid fa-play"></i> Play Tilak Music (Vedic Flute)
+          </button>
+        </div>
+
+        <!-- Event 2: Haldi & Matkor -->
+        <div class="event-card" id="card-haldi" data-theme="haldi">
+          <span class="event-badge">Ritual of Radiance</span>
+          <div class="event-icon-box">
+            <i class="fa-solid fa-sun"></i>
+          </div>
+          <h3 class="event-title">Haldi &amp; Matkor</h3>
+          <div class="event-datetime">
+            <span>Tuesday, 24th November 2026 (24.11.26)</span>
+            <span style="color: var(--crimson-primary);">10:00 AM Onwards</span>
+          </div>
+          <p class="event-desc">
+            Traditional Matkor rituals followed by the sacred application of fragrant turmeric ubtan, soulful folk songs, and joyful family celebrations.
+          </p>
+          <div class="event-dresscode">Dress Code: Radiant Yellows &amp; Festive Ochre</div>
+          <button class="event-music-btn" data-theme="haldi">
+            <i class="fa-solid fa-play"></i> Play Haldi Music (Folk Dholak)
+          </button>
+        </div>
+
+        <!-- Event 3: Shubh Vivah (THE MAIN WEDDING) -->
+        <div class="event-card wedding-day-special" id="card-wedding" data-theme="wedding">
+          <span class="event-badge" style="background: linear-gradient(135deg, #d32f2f, #720e1e); color: #fff;">THE AUSPICIOUS DAY</span>
+          <div class="event-icon-box" style="background: #fff0f2; border-color: #d32f2f;">
+            <i class="fa-solid fa-ring" style="color: #b71c1c;"></i>
+          </div>
+          <h3 class="event-title" style="color: #720e1e; font-size: 1.4rem;">Shubh Vivah (The Wedding)</h3>
+          <div class="event-datetime">
+            <span style="font-size: 1.05rem; font-weight: 700;">Wednesday, 25th November 2026 (25.11.26)</span>
+            <span style="color: #b71c1c; font-weight: 700;">Baraat Swagat: 06:00 PM • Jaimala &amp; Phere: 08:30 PM</span>
+          </div>
+          <p class="event-desc">
+            The grand Baraat arrival, Jaimala garland exchange, and the sacred Saat Phere around the Agni at Behind Rajendra Hostel, Near Chandmari, Motihari.
+          </p>
+          <div class="event-dresscode" style="background: #ffebee; color: #720e1e;">Dress Code: Royal Traditional Indian &amp; Silk</div>
+          <button class="event-music-btn" data-theme="wedding" style="background: #720e1e; color: #fff;">
+            <i class="fa-solid fa-play"></i> Play Wedding Music (Royal Shehnai)
+          </button>
+        </div>
+
+        <!-- Event 4: Mehendi Ceremony -->
+        <div class="event-card" id="card-mehendi" data-theme="mehendi">
+          <span class="event-badge">Henna &amp; Music Celebration</span>
+          <div class="event-icon-box">
+            <i class="fa-solid fa-hand-sparkles"></i>
+          </div>
+          <h3 class="event-title">Mehendi Ceremony</h3>
+          <div class="event-datetime">
+            <span>Thursday, 26th November 2026 (26.11.26)</span>
+            <span style="color: var(--crimson-primary);">05:30 PM Onwards</span>
+          </div>
+          <p class="event-desc">
+            Intricate bridal henna artwork on hands, festive music, dholak rhythms, dance, and an evening of joyful feast with close friends and family.
+          </p>
+          <div class="event-dresscode">Dress Code: Emerald Green &amp; Vibrant Pastels</div>
+          <button class="event-music-btn" data-theme="mehendi">
+            <i class="fa-solid fa-play"></i> Play Mehendi Music (Henna Beats)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: INTERACTIVE ASHIRWAD & GUESTBOOK WALL
+       ========================================================================== -->
+  <section id="guestbook" class="section-wrapper bg-crimson">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Send Your Warm Wishes &amp; Ashirwad</span>
+        <h2 class="section-title">Blessings for Vaishnavi &amp; Nikhil</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <span class="ornament">💌</span>
+          <div class="line"></div>
+        </div>
+        <p style="max-width: 600px; margin: 15px auto 0; color: #edd9b8; font-size: 1.05rem;">
+          Your blessings and heartfelt words will be preserved as an eternal keepsake for the couple. Leave your message below!
+        </p>
+      </div>
+
+      <div class="guestbook-wrapper">
+        <!-- Blessing Submission Form -->
+        <form id="blessings-form">
+          <div class="blessings-form-grid">
+            <div>
+              <label style="font-family: var(--font-royal); font-size: 0.85rem; color: var(--gold-light); display: block; margin-bottom: 6px;">
+                YOUR NAME *
+              </label>
+              <input type="text" id="guest-name" class="input-royal" placeholder="e.g. Ramesh Uncle / Priya Sharma" required>
+            </div>
+
+            <div>
+              <label style="font-family: var(--font-royal); font-size: 0.85rem; color: var(--gold-light); display: block; margin-bottom: 6px;">
+                RELATION / CONNECTION
+              </label>
+              <select id="guest-relation" class="input-royal">
+                <option value="Bride's Family">Bride's Family (Shrivastava)</option>
+                <option value="Groom's Family">Groom's Family (Saurabh)</option>
+                <option value="Loving Friend">Loving Friend</option>
+                <option value="Well Wisher">Well Wisher</option>
+              </select>
+            </div>
+
+            <div class="blessings-form-full">
+              <label style="font-family: var(--font-royal); font-size: 0.85rem; color: var(--gold-light); display: block; margin-bottom: 6px;">
+                YOUR ASHIRWAD / BLESSING MESSAGE *
+              </label>
+              <textarea id="guest-message" class="input-royal" rows="3" placeholder="Write your heartfelt blessing and warm wishes for Vaishnavi and Nikhil..." required></textarea>
+            </div>
+
+            <div class="blessings-form-full" style="text-align: center; margin-top: 10px;">
+              <button type="submit" class="btn-royal-primary">
+                <i class="fa-solid fa-paper-plane"></i>
+                Send My Blessings
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Dynamic Blessings Wall Display -->
+        <div class="blessings-wall" id="blessings-wall-container">
+          <!-- Rendered dynamically by app.js with pre-filled family blessings -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 7: VENUE & SAVE THE DATE
+       ========================================================================== -->
+  <section id="venue" class="section-wrapper bg-ivory">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tagline">Mark Your Calendar &amp; Celebrate With Us</span>
+        <h2 class="section-title">Save The Date</h2>
+        <div class="section-divider">
+          <div class="line"></div>
+          <span class="ornament">🏛️</span>
+          <div class="line"></div>
+        </div>
+      </div>
+
+      <div class="venue-card-wrapper">
+        <div class="venue-icon-large">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </div>
+        <h3 class="venue-name">Shubh Vivah Venue (शुभ विवाह स्थल)</h3>
+        <p class="venue-address" style="font-weight: 500; font-size: 1.15rem; color: var(--crimson-primary);">
+          Behind Rajendra Hostel, Near Chandmari, Motihari (East Champaran, Bihar)
+        </p>
+        <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 550px; margin: -15px auto 25px; line-height: 1.6;">
+          Warmly welcomed by the Shrivastava &amp; Saurabh families. We look forward to your gracious presence!
+        </p>
+
+        <div style="font-family: var(--font-royal); font-size: 1.15rem; color: var(--crimson-primary); font-weight: 700; margin-bottom: 25px;">
+          📅 25th NOVEMBER 2026 (WEDNESDAY)
+        </div>
+
+        <div class="venue-actions">
+          <a href="https://www.google.com/maps/search/?api=1&query=Behind+Rajendra+Hostel+Near+Chandmari+Motihari" target="_blank" class="btn-royal-primary" style="text-decoration: none;">
+            <i class="fa-solid fa-location-arrow"></i>
+            Open in Google Maps
+          </a>
+          <button id="add-gcal-btn" class="btn-royal-secondary" style="color: #4a0610; border-color: #720e1e;">
+            <i class="fa-brands fa-google"></i>
+            Add to Google Calendar
+          </button>
+          <button id="download-ics-btn" class="btn-royal-secondary" style="color: #4a0610; border-color: #720e1e;">
+            <i class="fa-solid fa-calendar-arrow-down"></i>
+            Download Apple / Outlook (.ics)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ROYAL FOOTER & AUSPICIOUS CONCLUSION
+       ========================================================================== -->
+  <footer class="royal-footer">
+    <div class="container">
+      <div class="footer-ganesha">
+        <img src="assets/images/ganesha.svg" alt="Lord Ganesha" style="width: 100%; height: 100%;">
+      </div>
+
+      <div class="footer-mantra">
+        ॥ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ॥
+      </div>
+
+      <div class="footer-couple">
+        Vaishnavi &amp; Nikhil
+      </div>
+
+      <div class="footer-family">
+        With warm hospitality and folded hands:<br>
+        <strong>Adv. Deoraj Shrivastava &amp; Bishwa Bihari Shrivastava</strong><br>
+        <span style="font-size: 0.95rem; color: #dec8a7;">and the entire Shrivastava &amp; Saurabh Families</span>
+      </div>
+
+      <p class="footer-copyright">
+        Crafted with infinite love for our dearest sister Vaishnavi • 25th November 2026
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FULLSCREEN LIGHTBOX MODAL FOR WEDDING ALBUM
+       ========================================================================== -->
+  <div id="wedding-lightbox" class="lightbox-modal">
+    <button class="lightbox-close" id="lightbox-close-btn" title="Close (Esc)">&times;</button>
+    <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev-btn" title="Previous Photo">&#10094;</button>
+    <button class="lightbox-nav-btn lightbox-next" id="lightbox-next-btn" title="Next Photo">&#10095;</button>
+
+    <div class="lightbox-img-wrapper">
+      <img id="lightbox-display-img" class="lightbox-img" src="" alt="Wedding Memory">
+    </div>
+    <div id="lightbox-display-caption" class="lightbox-caption"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/petals.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

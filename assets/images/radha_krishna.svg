@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5B8" />
+      <stop offset="40%" stop-color="#D4AF37" />
+      <stop offset="80%" stop-color="#A27318" />
+      <stop offset="100%" stop-color="#6F4B0B" />
+    </linearGradient>
+    <linearGradient id="peacockBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ACC1" />
+      <stop offset="50%" stop-color="#00695C" />
+      <stop offset="100%" stop-color="#0D47A1" />
+    </linearGradient>
+    <linearGradient id="divineRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A80" />
+      <stop offset="60%" stop-color="#C2185B" />
+      <stop offset="100%" stop-color="#880E4F" />
+    </linearGradient>
+    <radialGradient id="divineAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF9C4" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#FFE082" stop-opacity="0.6" />
+      <stop offset="80%" stop-color="#FFB300" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#FFB300" stop-opacity="0" />
+    </radialGradient>
+    <filter id="glowEffect">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Aura of Eternal Love -->
+  <circle cx="250" cy="200" r="175" fill="url(#divineAura)" />
+  <circle cx="250" cy="200" r="165" fill="none" stroke="url(#goldGrad2)" stroke-width="2" stroke-dasharray="8,6" opacity="0.7" />
+  <circle cx="250" cy="200" r="172" fill="none" stroke="url(#goldGrad2)" stroke-width="1" opacity="0.5" />
+
+  <!-- Sacred Tree / Kadamba Branch subtle arch -->
+  <path d="M 60,80 Q 250,20 440,70" fill="none" stroke="url(#goldGrad2)" stroke-width="3" opacity="0.6" />
+  <!-- Blossoming flowers along the branch -->
+  <circle cx="120" cy="62" r="5" fill="#FF80AB" />
+  <circle cx="180" cy="45" r="5" fill="#FF80AB" />
+  <circle cx="250" cy="38" r="6" fill="#FFD54F" />
+  <circle cx="320" cy="45" r="5" fill="#FF80AB" />
+  <circle cx="380" cy="60" r="5" fill="#FF80AB" />
+
+  <!-- PEACOCK FEATHER (Mor Pankh on Krishna's Mukut) -->
+  <g transform="translate(245, 60) rotate(-15)">
+    <!-- Feather Stem -->
+    <path d="M 0,90 Q 5,40 15,0" fill="none" stroke="#D4AF37" stroke-width="2.5" />
+    <!-- Outer Green/Blue eye -->
+    <ellipse cx="16" cy="15" rx="20" ry="26" fill="url(#peacockBlue)" transform="rotate(10 16 15)" />
+    <!-- Inner Gold Ring -->
+    <ellipse cx="16" cy="17" rx="14" ry="18" fill="url(#goldGrad2)" transform="rotate(10 16 17)" />
+    <!-- Deep Blue Center Eye -->
+    <ellipse cx="16" cy="18" rx="8" ry="10" fill="#1A237E" />
+    <circle cx="16" cy="17" r="4" fill="#00E5FF" />
+  </g>
+
+  <!-- RADHA & KRISHNA POETIC SILHOUETTE & SACRED EMBRACE -->
+  <g filter="url(#glowEffect)">
+    <!-- KRISHNA (Shyama) - Left Figure -->
+    <!-- Mukut Crown -->
+    <path d="M 180,120 L 210,65 L 235,125 Z" fill="url(#goldGrad2)" />
+    <!-- Tilak -->
+    <path d="M 205,120 Q 208,105 208,98 Q 208,105 211,120" stroke="#FFF" stroke-width="2" fill="none" />
+    <!-- Krishna's Face & Serene Profile -->
+    <path d="M 210,125 C 220,135 224,155 218,170 C 212,185 195,195 180,195" 
+          fill="none" stroke="url(#goldGrad2)" stroke-width="5" stroke-linecap="round" />
+    <!-- Kundal / Earring -->
+    <circle cx="185" cy="165" r="5" fill="url(#goldGrad2)" />
+    <circle cx="185" cy="172" r="3" fill="#D81B60" />
+
+    <!-- RADHA RANI - Right Figure in Gentle Devotion -->
+    <!-- Radha's Elegant Profile leaning softly towards Krishna -->
+    <path d="M 255,140 C 248,155 248,175 258,190 C 265,200 280,205 295,200" 
+          fill="none" stroke="url(#goldGrad2)" stroke-width="5" stroke-linecap="round" />
+    <!-- Radha's Ornate Maang Tikka / Bindi -->
+    <circle cx="260" cy="148" r="4.5" fill="#D81B60" />
+    <line x1="272" y1="130" x2="260" y2="145" stroke="url(#goldGrad2)" stroke-width="2" />
+    <!-- Radha's Jhumar / Nath (Nose Ring) -->
+    <circle cx="248" cy="172" r="4" fill="none" stroke="url(#goldGrad2)" stroke-width="1.8" />
+    <circle cx="244" cy="172" r="1.5" fill="#D81B60" />
+    <!-- Ornate Jhumka -->
+    <circle cx="282" cy="175" r="5" fill="url(#goldGrad2)" />
+    <path d="M 278,180 L 286,180 L 282,188 Z" fill="url(#goldGrad2)" />
+
+    <!-- SACRED BANSURI (Divine Flute) held together -->
+    <g transform="translate(130, 195) rotate(-18)">
+      <!-- Flute Tube -->
+      <rect x="0" y="0" width="220" height="13" rx="6.5" fill="url(#goldGrad2)" stroke="#85580F" stroke-width="1.2" />
+      <!-- Flute Holes -->
+      <circle cx="45" cy="6.5" r="2.5" fill="#3E2723" />
+      <circle cx="75" cy="6.5" r="2.5" fill="#3E2723" />
+      <circle cx="105" cy="6.5" r="2.5" fill="#3E2723" />
+      <circle cx="135" cy="6.5" r="2.5" fill="#3E2723" />
+      <circle cx="165" cy="6.5" r="2.5" fill="#3E2723" />
+      <circle cx="190" cy="6.5" r="2.5" fill="#3E2723" />
+      <!-- Decorative Tassels hanging from Flute -->
+      <path d="M 20,13 Q 22,35 15,55" fill="none" stroke="url(#goldGrad2)" stroke-width="2" />
+      <circle cx="15" cy="58" r="4" fill="#D81B60" />
+      <path d="M 195,13 Q 200,35 205,50" fill="none" stroke="url(#goldGrad2)" stroke-width="2" />
+      <circle cx="205" cy="53" r="4" fill="#D81B60" />
+    </g>
+
+    <!-- Gentle Hands holding the flute with Mehndi designs -->
+    <circle cx="215" cy="208" r="10" fill="url(#goldGrad2)" opacity="0.9" />
+    <circle cx="270" cy="200" r="9" fill="url(#goldGrad2)" opacity="0.9" />
+
+    <!-- Sacred Garland (Vanamala) draping gracefully -->
+    <path d="M 160,250 Q 235,340 310,255" fill="none" stroke="url(#goldGrad2)" stroke-width="14" stroke-dasharray="10,6" opacity="0.75" />
+    <path d="M 160,250 Q 235,340 310,255" fill="none" stroke="#FF5252" stroke-width="8" stroke-dasharray="6,8" opacity="0.6" />
+
+    <!-- Dupatta / Veil flowing around Radha -->
+    <path d="M 305,145 Q 360,200 340,310" fill="none" stroke="url(#divineRose)" stroke-width="6" opacity="0.8" />
+    <path d="M 305,145 Q 360,200 340,310" fill="none" stroke="url(#goldGrad2)" stroke-width="2" stroke-dasharray="4,6" />
+  </g>
+
+  <!-- Sacred Lotus Pedestal at Bottom -->
+  <g transform="translate(250, 395)">
+    <path d="M -150,10 C -100,-25 -40,5 0,0 C 40,5 100,-25 150,10 C 120,35 50,30 0,32 C -50,30 -120,35 -150,10 Z" fill="url(#goldGrad2)" opacity="0.9"/>
+    <path d="M -80,10 C -40,-15 0,-15 0,-15 C 0,-15 40,-15 80,10 C 40,15 0,15 0,15 C 0,15 -40,15 -80,10 Z" fill="#FFE082"/>
+  </g>
+
+  <!-- Auspicious Inscription -->
+  <text x="250" y="440" text-anchor="middle" font-family="'Cinzel Decorative', 'Marcellus', serif" font-size="16" font-weight="bold" fill="url(#goldGrad2)" letter-spacing="3">
+    ॥ श्री राधा-कृष्णाभ्यां नमः ॥
+  </text>
+</svg>
